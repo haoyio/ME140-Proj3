@@ -1,0 +1,15 @@
+function [P, Po, M, V, T, To] = wrapperImpactProbe(m_dot, A, Tm, Po, RF)
+    
+    P = zeros(length(To), 1);
+    T = zeros(length(To), 1);
+    M = zeros(length(To), 1);
+    V = zeros(length(To), 1);
+
+    for i = i:To.length
+        [] = impactProbeData(m_dot, A(i), Tm(i), Po(i), RF)
+        
+        
+    end
+
+
+end
