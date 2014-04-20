@@ -2,7 +2,7 @@ First, clone this repo onto some directory that you want to work from (everythin
 	git clone <ssh clone url> (e.g., git clone git@github.com:haoyio/ME140-Proj3.git)
 
 
-Second, you want to "sync up" everything that everyone else has done and committed onto the online repo up to this point, so you don't use the older version. To do that, simply type:
+Second, you want to "sync up" everything that everyone else has done and committed onto the online repo up to this point, so you don't use an older version. Note that when you sync up you'll get the versions of the files that are most recently pushed onto the online repo. In any case, to sync up, simply type:
 	git pull
 
 
