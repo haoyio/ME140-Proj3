@@ -1,5 +1,5 @@
 classdef const
-    %The constants class
+    % The constants class
     %   Its values are accessed by referencing const.VAR
    properties (Constant)
 
