@@ -1,5 +1,9 @@
-First, clone this repo onto some directory that you want to work from:
+First, clone this repo onto some directory that you want to work from (everything is done from the terminal):
 	git clone <ssh clone url> (e.g., git clone git@github.com:haoyio/ME140-Proj3.git)
+
+
+Second, you want to "sync up" everything that everyone else has done and committed onto the online repo up to this point, so you don't use the older version. To do that, simply type:
+	git pull
 
 
 Now, there are basically 4 things you need to do whenever you add a new file onto your cloned folder:
