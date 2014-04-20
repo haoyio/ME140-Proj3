@@ -52,5 +52,5 @@ classdef const
     M_CO2 = 44.009; M_H2O = 18.0148; M_C = 12.011; M_H2 = 2.0158;
 %   end
 
-%fuck
+%fuck shit
 end
