@@ -50,6 +50,6 @@ classdef const
     % Molar masses
     M_O2 = 31.998; M_N2 = 28.014; M_C12H26 = 170.3374;
     M_CO2 = 44.009; M_H2O = 18.0148; M_C = 12.011; M_H2 = 2.0158;
-%   end
+    end
 
 end

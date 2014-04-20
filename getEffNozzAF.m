@@ -1,6 +1,4 @@
-function eff = getEffNozz(To1, Po1, To2, v2, P2, isVarK)
-
-eff = 0;
+function eff = getEffNozzAF(To1, Po1, To2, v2, P2, isVarK, mdot_air, mdot_fuel)
 
 if isVarK
     R = const.R;
@@ -11,13 +9,13 @@ if isVarK
     LHS = 0;
     RHS = R*log(P2/Po1);
     while LHS > RHS
-        [cp,~,~] = specHeat(T2s);
+        [cp,~,~] = specHeatC123H222(mdot_air/mdot_fuel, T2s);
         LHS = LHS + cp/T2s*dT;
         T2s = T2s + dT;
     end
     
     Po2s = Po1;
-    [~,~,k] = specHeat(T2s);
+    [~,~,k] = specHeatC123H222(mdot_air/mdot_fuel, T2s);
     M2s = (2/(k-1)*((Po2s/P2)^((k-1)/k) - 1))^0.5;  % isentropic relations
     
     %{
