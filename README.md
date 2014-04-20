@@ -1,4 +1,8 @@
-There are basically 4 things you need to do whenever you add a new file onto your cloned folder:
+First, clone this repo onto some directory that you want to work from:
+	git clone <ssh clone url> (e.g., git clone git@github.com:haoyio/ME140-Proj3.git)
+
+
+Now, there are basically 4 things you need to do whenever you add a new file onto your cloned folder:
 
 1. Physically create/copy/move a file onto your folder (e.g., icecream.m) 
 
