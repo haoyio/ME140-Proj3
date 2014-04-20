@@ -20,4 +20,5 @@ MF = [MF_CO2 MF_H2O MF_N2 MF_O2]';
 ABCD = [abcd_CO2; abcd_H2O; abcd_N2; abcd_O2];  % specific heat constants (3-poly)
 [cp, cv, k] = specHeatMix(M, MF, ABCD(:,1), ABCD(:,2), ABCD(:,3), ABCD(:,4), T);
 
+%Fuck
 end
