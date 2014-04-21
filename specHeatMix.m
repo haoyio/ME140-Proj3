@@ -1,17 +1,18 @@
-function [cp, cv, k] = specHeatMix(M, MF, a, b, c, d, T)
+function [cp, cv, k] = specHeatMix(M, MF, ABCD, T)
 
 %
 % Returns specific heats for the mixture.
 % 
-% M = molar mass
+% M = molar mass [g/mol]
 % MF = mass fraction
-% a, b, c, d = specific heat constants
-% T = temperature
+% ABCD = specific heat constants [J/mol, J/molK, J/molK^2, J/molK^3]
+% T = temperature [K]
 %
 
-M_mix = MF'*M;  % mixture molar mass
-cp = MF'*(a + T*b + T^2*c + T^3*d); % mixture cp
-cv = cp - const.Ru; % mixture cv
-k = cp./cv; % mixture k
+M_mix = MF'*M/1e3;  % [kg/mol] mixture molar mass
+
+cp = MF'*ABCD*[1 T T^2 T^3]'/M_mix; % [J/kgK] mixture cp
+cv = cp - const.R % [J/kgK] mixture cv
+k = cp./cv % [] mixture k
 
 end

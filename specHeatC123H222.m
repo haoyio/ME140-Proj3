@@ -11,17 +11,19 @@ function [cp, cv, k] = specHeatC123H222(AF, T)
 AF_stoich = 17.85*(const.M_O2 + ...      % stoichometric air-fuel ratio
             3.76*const.M_N2)/const.M_C12H26;
 phi = AF_stoich/AF;                     % equivalence ratio
-MF_CO2 = 12.3*phi*const.M_CO2;          % mass fraction CO2
-MF_H2O = 11.1*phi*const.M_H2O;          % mass fraction H2O
-MF_N2 = 3.76*17.85*const.M_N2;          % mass fraction N2
-MF_O2 = 17.85*(1-phi)*const.M_O2;       % mass fraction O2
-MF = [MF_CO2 MF_H2O MF_N2 MF_O2]';
+
+M_total = 12.3*phi + 11.1*phi + 3.76*17.85 + 17.85*(1-phi);
+MF_CO2 = 12.3*phi/M_total;          % molar fraction CO2
+MF_H2O = 11.1*phi/M_total;          % molar fraction H2O
+MF_N2 = 3.76*17.85/M_total;         % molar fraction N2
+MF_O2 = 17.85*(1-phi)/M_total;      % molar fraction O2
+MF = [MF_CO2 MF_H2O MF_N2 MF_O2]';  % molar fractions
 
 ABCD = [const.abcd_CO2; const.abcd_H2O; ...
         const.abcd_N2; const.abcd_O2];  % specific heat constants (3-poly)
 
 
 M = [const.M_CO2; const.M_H2O; const.M_N2; const.M_O2];     % molar mass
-[cp, cv, k] = specHeatMix(M, MF, ABCD(:,1), ABCD(:,2), ABCD(:,3), ABCD(:,4), T);
+[cp, cv, k] = specHeatMix(M, MF, ABCD, T);
 
 end
