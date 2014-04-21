@@ -12,7 +12,7 @@ function [cp, cv, k] = specHeatMix(M, MF, ABCD, T)
 M_mix = MF'*M/1e3;  % [kg/mol] mixture molar mass
 
 cp = MF'*ABCD*[1 T T^2 T^3]'/M_mix; % [J/kgK] mixture cp
-cv = cp - const.R % [J/kgK] mixture cv
-k = cp./cv % [] mixture k
+cv = cp - const.R; % [J/kgK] mixture cv
+k = cp./cv; % [] mixture k
 
 end
