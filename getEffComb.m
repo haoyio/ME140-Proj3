@@ -4,7 +4,7 @@ if ~isVarK
     dT = 1e-2;
     delta_h = 0;
     for T = To1:dT:To2          % enthalpy change from To1 to To2
-        [cp,~,~] = specHeat(T);
+        [cp,~,~] = specHeatC123H222(mdot_air, mdot_fuel, T);
         delta_h = delta_h + cp*dT;
     end
 else
