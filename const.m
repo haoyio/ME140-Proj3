@@ -50,6 +50,12 @@ classdef const
     % Molar masses
     M_O2 = 31.998; M_N2 = 28.014; M_C12H26 = 170.3374;
     M_CO2 = 44.009; M_H2O = 18.0148; M_C = 12.011; M_H2 = 2.0158;
+    
+    % Heats of formation
+    href_CO2 = -393520; %kJ/kmol
+    href_H2O = -285830; %kJ/kmol
+    href_O2 = 0; %kJ/kmol
+    href_N2 = 0; %kJ/kmol
     end
 
 end
