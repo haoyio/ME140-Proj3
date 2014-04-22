@@ -27,12 +27,12 @@ loaddata;
 AF = m_air./m_fuel;
 
 % Station 4 conditions (combustion products)
-[P4c, Po4c, M4c, V4c, T4c, To4c] = ...
-    productsStation_4(m_air + m_fuel, const.A4, T4m, P4, const.RF_cr, AF);
+% [P4c, Po4c, M4c, V4c, T4c, To4c] = ...
+%     productsStation_4(m_air + m_fuel, const.A4, T4m, P4, const.RF_cr, AF);
 
 % Station 5 conditions (combustion products)
-[P5c, Po5c, M5c, V5c, T5c, To5c] = ...
-    productsStations_5_8(m_air + m_fuel, const.A5, T5m, Po5, const.RF_ax, AF);
+% [P5c, Po5c, M5c, V5c, T5c, To5c] = ...
+%     productsStations_5_8(m_air + m_fuel, const.A5, T5m, Po5, const.RF_ax, AF);
 
 % Station8 conditions (combustion products)
 % [P8c, Po8c, M8c, V8c, T8c, To8c] = ...

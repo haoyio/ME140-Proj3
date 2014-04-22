@@ -8,7 +8,8 @@ M = zeros(length(Po), 1);
 V = zeros(length(Po), 1);
 
 for i = 1:length(Po)
-    res = productsStations_5_8_Internal(m_dot(i), A, Tm(i), Po(i), RF,AF(i)); % Obtain the values for one spool speed
+    % Obtain the values for one spool speed
+    res = productsStations_5_8_Internal(m_dot(i), A, Tm(i), Po(i), RF, AF(i));
     
     P(i) = res.P;
     T(i) = res.T;
@@ -28,7 +29,7 @@ function [res] = productsStations_5_8_Internal(m_dot, A, Tm, Po, RF, AF)
 % % Constants
 T_error = 0.1;
 To_error = 0.1;
-M_inc = 0.0001;
+M_inc = 0.001;
 
 
 [Cp,Cv,k] = specHeatC123H222(AF,Tm);
