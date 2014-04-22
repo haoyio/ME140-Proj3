@@ -2,8 +2,7 @@ function plotsPart3(thrust_calc, thrust_meas, specific_thrust, TSFC, eta)
 
 % Plots all the part 3 graphs required in assignment
 
-spool_speed = [45,50,55,60,65,70,75,80];
-w = spool_speed;
+w = [45:5:80]; % spool speed
 kg_To_g = 1e3;
 
 % Plot Measured Thrust and Calculated Thrust

@@ -3,8 +3,8 @@ function plotsPart4(in)
 % function project2Part4Plots(struct in);
 numDataPoints = 8;
 out = wrapperPart4(in,numDataPoints);
-spool_speed = [45,50,55,60,65,70,75,80];
-w = spool_speed;
+w = [45:5:80]; % spool speed
+
 
 % power (produced and consumed) vs spool speed
 compressor_work = out.work_COM;
@@ -82,16 +82,16 @@ xlim([45,80]);
 set(h4,'LineWidth',3);
 print('-depsc','-tiff','-r300','Noz_EffvsSpeed');
 
-% Plot Combustor Efficiency
-figure(5)
-h5 = plot(w,combustor_efficiency,'*-');
-xlabel('Spool Speed [krpm]')
-ylabel('Combustor Efficiency')
-title('Combustor Efficiency vs Spool Speed')
-plotfixer;
-ylim([0.63,0.93]);
-xlim([45,80]);
-set(h5,'LineWidth',3);
-print('-depsc','-tiff','-r300','Comb_EffvsSpeed');
+% % Plot Combustor Efficiency
+% figure(5)
+% h5 = plot(w,combustor_efficiency,'*-');
+% xlabel('Spool Speed [krpm]')
+% ylabel('Combustor Efficiency')
+% title('Combustor Efficiency vs Spool Speed')
+% plotfixer;
+% ylim([0.63,0.93]);
+% xlim([45,80]);
+% set(h5,'LineWidth',3);
+% print('-depsc','-tiff','-r300','Comb_EffvsSpeed');
 
 end
