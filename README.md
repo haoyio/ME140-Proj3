@@ -24,4 +24,5 @@ Now, there are basically 4 things you need to do whenever you add a new file ont
 
 	git push -u origin master
 
+
 When you merely edited some file, and want to update the changes onto the online git repo, add you have to do is to do steps 2 to 4; nothing else. Clearly, there're more complicated stuff you can do on the repo, but these are sufficient for the purposes of this project.
