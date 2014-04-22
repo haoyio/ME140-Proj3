@@ -63,6 +63,9 @@ classdef const
     
     %Heat of vaporization of jet-A
     hv_jetA = 270000; %J/kg
+    
+    %Reference temperature
+    Tref = 298; %K
     end
 
 end
