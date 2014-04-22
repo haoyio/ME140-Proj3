@@ -1,11 +1,14 @@
 function [P, Po, M, V, T, To] = impactProbeStations_3_5_8(m_dot, A, Tm, Po, RF)
-
 % Finds station properties for all given spool speeds.
+
+numDataPoints = 8;
 
 P = zeros(length(Po), 1);
 T = zeros(length(Po), 1);
 M = zeros(length(Po), 1);
 V = zeros(length(Po), 1);
+
+To = zeros(1,numDataPoints);
 
 for i = 1:length(Po)
     res = impactProbeData(m_dot(i), A, Tm(i), Po(i), RF); % Obtain the values for one spool speed
