@@ -9,7 +9,7 @@ function [cp, cv, k] = specHeatC123H222(AF, T)
 
 % Compute mass fractions
 AF_stoich = 17.85*(const.M_O2 + ...      % stoichometric air-fuel ratio
-            3.76*const.M_N2)/const.M_C12H26;
+            3.76*const.M_N2)/const.M_C123H222;
 phi = AF_stoich/AF;                     % equivalence ratio
 
 M_total = 12.3*phi + 11.1*phi + 3.76*17.85 + 17.85*(1-phi);
