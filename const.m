@@ -56,6 +56,10 @@ classdef const
     href_H2O = -285830; %kJ/kmol
     href_O2 = 0; %kJ/kmol
     href_N2 = 0; %kJ/kmol
+    
+    %Heats of formation of surrogate fuel (C12.3H22.2)
+    hf_surr_molar = -243760.9; %kJ/kmol
+    hf_surr = 1432.954686; %kJ/kg
     end
 
 end
