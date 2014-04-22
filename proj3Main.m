@@ -26,44 +26,46 @@ loaddata;
 
 AF = m_air./m_fuel;
 
+% Use adiabatic flame temp to calculate To4
 % Station 4 conditions (combustion products)
-% [P4c, Po4c, M4c, V4c, T4c, To4c] = ...
-%     productsStation_4(m_air + m_fuel, const.A4, T4m, P4, const.RF_cr, AF);
+[P4c, Po4c, M4c, V4c, T4c, To4c] = ...
+    productsStation_4(m_air + m_fuel, const.A4, T4m, P4, const.RF_cr, AF);
 
 % Station 5 conditions (combustion products)
-% [P5c, Po5c, M5c, V5c, T5c, To5c] = ...
-%     productsStations_5_8(m_air + m_fuel, const.A5, T5m, Po5, const.RF_ax, AF);
+[P5c, Po5c, M5c, V5c, T5c, To5c] = ...
+    productsStations_5_8(m_air + m_fuel, const.A5, T5m, Po5, const.RF_ax, AF);
 
 % Station8 conditions (combustion products)
-% [P8c, Po8c, M8c, V8c, T8c, To8c] = ...
-%     productsStations_5_8(m_air + m_fuel, const.A8, T8m, Po8, const.RF_cr, AF);
+[P8c, Po8c, M8c, V8c, T8c, To8c] = ...
+    productsStations_5_8(m_air + m_fuel, const.A8, T8m, Po8, const.RF_cr, AF);
 
 % % PART 4 stuff
-% % Generate struct for part 4 function
-% in4.To2 = To2; in4.Po2 = Po2;
-% in4.To3 = To3; in4.Po3 = Po3;
-% in4.To4 = To4; in4.Po4 = Po4;
-% in4.To5 = To5; in4.Po5 = Po5;
-% in4.To8 = To8; in4.Po8 = Po8;
-% in4.mdot_fuel = m_fuel;
-% in4.mdot_air = m_air;
-% in4.v8 = V8;
-% in4.P8 = P8;
-% 
-% out4 = wrapperPart4(in4, length(DP2)); % get eff_NOZ, eff_TUR, eff_CMB, eff_COM,
-%                           % work_TUR, work_COM, Po4/Po3 (Po4_Po3)
-% 
-% 
-% %Calculate the specific thrust, TSFC and thermal efficiency and plot them.
-% [thrust_calc, specific_thrust, TSFC, eta] = part3(m_air+m_fuel, m_fuel, V8, const.LHV);
+% Generate struct for part 4 function
+in4.To2 = To2; in4.Po2 = Po2;
+in4.To3 = To3; in4.Po3 = Po3;
+in4.To4 = To4c; in4.Po4 = Po4c;
+in4.To5 = To5c; in4.Po5 = Po5c;
+in4.To8 = To8c; in4.Po8 = Po8c;
+in4.mdot_fuel = m_fuel;
+in4.mdot_air = m_air;
+in4.v8 = V8c;
+in4.P8 = P8c;
+
+out4 = wrapperPart4(in4, length(DP2)); % get eff_NOZ, eff_TUR, eff_CMB, eff_COM,
+                          % work_TUR, work_COM, Po4/Po3 (Po4_Po3)
 
 
-% plotsPart2(To2,To3,To4,To5,To8,...
-%     Po2, Po3, Po4, Po5, Po8,...
-%     M2, M3, M4, M5, M8,...
-%     V2, V3, V4, V5, V8,...
-%     m_air, m_fuel);
-% 
-% plotsPart3(thrust_calc, thrust, specific_thrust, TSFC, eta);
-% 
-% plotsPart4(in4)
+%Calculate the specific thrust, TSFC and thermal efficiency and plot them.
+[thrust_calc, specific_thrust, TSFC, eta] =...
+    part3(m_air+m_fuel, m_fuel, V8c, const.LHV);
+
+
+plotsPart2(To2,To3,To4,To5,To8,...
+    Po2, Po3, Po4c, Po5c, Po8c,...
+    M2, M3, M4c, M5c, M8c,...
+    V2, V3, V4c, V5c, V8c,...
+    m_air, m_fuel);
+
+plotsPart3(thrust_calc, thrust, specific_thrust, TSFC, eta);
+
+plotsPart4(in4)

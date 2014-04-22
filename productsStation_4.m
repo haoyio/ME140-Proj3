@@ -33,13 +33,15 @@ while(true)
             optimset('Display','off'));
         Po_P = (1+(k-1)/2*M^2)^((k-1)/k);
         Po_new = Po_P * P;
-        if( abs((Po_new-Po)/Po) < 1e-4 )
+        if( abs((Po_new-Po)/Po) < 1e-3 )
+            Po = Po_new;
             break;
         end
     end
     To_Tm = (1+(k-1)/2*M^2)/(1+RF*(k-1)/2*M^2);
     To_new = To_Tm * Tm;
-    if( abs((To_new-To)/To) < 1e-4 )
+    if( abs((To_new-To)/To) < 1e-3 )
+        To = To_new;
         break;
     end
 end

@@ -1,43 +1,59 @@
 function plotsPart3(thrust_calc, thrust_meas, specific_thrust, TSFC, eta)
 
-spool_speed = [45:5:80];
+% Plots all the part 3 graphs required in assignment
+
+spool_speed = [45,50,55,60,65,70,75,80];
 w = spool_speed;
+kg_To_g = 1e3;
 
 % Plot Measured Thrust and Calculated Thrust
 figure(1)
-plot(w,thrust_calc,w,thrust_meas)
-legend('Calculated Thrust','Measured Thrust')
+h1 = plot(w,thrust_calc,'*-',...
+    w,thrust_meas,'*-');
+legend('Calculated Thrust','Measured Thrust','Location','NorthWest')
 xlabel('Spool Speed [krpm]')
 ylabel('Thrust [N]')
 title('Measured and Calculated Thrust vs Spool Speed')
 plotfixer;
+ylim([10,90]);
+xlim([45,80]);
+set(h1,'LineWidth',3);
 print('-depsc','-tiff','-r300','ThrustvsSpeed');
 
 % Plot Specific Thrust
 figure(2)
-plot(w,specific_thrust)
+h2 = plot(w,specific_thrust,'*-');
 xlabel('Spool Speed [krpm]')
-ylabel('Specific Thrust [N-s/kg]')
+ylabel('Specific Thrust (Ns)/kg_{total}')
 title('Specific Thrust vs Spool Speed')
 plotfixer;
+ylim([100,280]);
+xlim([45,80]);
+set(h2,'LineWidth',3);
 print('-depsc','-tiff','-r300','STvsSpeed');
 
 % Plot Thrust Specific Fuel Consumption
 figure(3)
-plot(w,TSFC)
+h3 = plot(w,TSFC*kg_To_g,'*-');
 xlabel('Spool Speed [krpm]')
-ylabel('Thrust Specific Fuel Consumption [kg/N-s]')
+ylabel('Thrust Specific Fuel Consumption kg_{air}/(Ns)')
 title('Thrust Specific Fuel Consumption vs Spool Speed')
 plotfixer;
+ylim([0.04,0.14]);
+xlim([45,80]);
+set(h3,'LineWidth',3);
 print('-depsc','-tiff','-r300','TSFCvsSpeed');
 
 % Plot Thermal Efficiency
 figure(4)
-plot(w,eta)
+h4 = plot(w,eta,'*-');
 xlabel('Spool Speed [krpm]')
-ylabel('Thermal Efficiency []')
+ylabel('Thermal Efficiency')
 title('Thermal Efficiency vs Spool Speed')
 plotfixer;
+ylim([0,0.07]);
+xlim([45,80]);
+set(h4,'LineWidth',3);
 print('-depsc','-tiff','-r300','Thermal_EffvsSpeed');
 
 end
