@@ -9,7 +9,7 @@ To = zeros(1,numDataPoints);
 
 for i = 1:numDataPoints
     [P(i), Po(i), M(i), V(i), T(i), To(i)] =...
-        productsStation_4_Internal(m_dot(i), A, Tm(i), P(i), RF, AF);  
+        productsStation_4_Internal(m_dot(i), A, Tm(i), P(i), RF, AF(i));  
 end
 
 end
