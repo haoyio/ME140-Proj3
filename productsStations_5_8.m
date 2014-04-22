@@ -33,6 +33,7 @@ M_inc = 0.0001;
 
 [Cp,Cv,k] = specHeatC123H222(AF,Tm);
 R = Cp - Cv; % J/(kg*K)
+M_mixture = getMolMassMix(AF);
 
 % (a) Assume To = Tm
 To = Tm;
@@ -59,14 +60,14 @@ while (true) % Loop to find correct To
             [cp, ~, ~] = specHeatC123H222(AF,Ti);
             I1 = I1 + cp*dT;
         end
-        cp_ave = I1 / (To - T);
+        cp_ave = I1/(To - T);
         
         % Calculate second integration
         I2 = 0;
         dT = 0.1;
         for Ti = T:dT:To
             [cp, ~, ~] = specHeatC123H222(AF,Ti);
-            I2 = I2 + cp/Ti*dT;
+            I2 = I2 + cp/R/Ti*dT;
         end
         
         
@@ -89,7 +90,7 @@ while (true) % Loop to find correct To
         % If this value agrees with the assumed value, this is the answer. If it
         % does not, use this calculated value as the next guess for T and repeat
         % from (c2).
-        T_new = Tm / (1 + RF*k*R/(2*cp_ave)*M^2)
+        T_new = Tm / (1 + RF*k*R/(2*cp_ave)*M^2);
         
         if (abs(T_new - T)  < T_error)
             break
