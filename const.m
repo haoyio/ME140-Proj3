@@ -48,8 +48,8 @@ classdef const
     abcd_CO2 = [22.26 5.981e-2 -3.501e-5 7.469e-9];
 
     % Molar masses
-    M_O2 = 31.998; M_N2 = 28.014; M_C12H26 = 170.3374; M_C123H222 = 170.1107;
-    M_CO2 = 44.009; M_H2O = 18.0148; M_C = 12.011; M_H2 = 2.0158; M_air = 28.97;
+    M_O2 = 32; M_N2 = 28; M_C12H26 = 170; M_C123H222 = 170;
+    M_CO2 = 44; M_H2O = 18; M_C = 12; M_H2 = 2; M_air = 28.97;
     
     % Heats of formation
     href_CO2 = -393520; %kJ/kmol
