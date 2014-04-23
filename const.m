@@ -58,8 +58,8 @@ classdef const
     href_N2 = 0; %kJ/kmol
     
     %Heats of formation of surrogate fuel (C12.3H22.2)
-    hf_surr_molar = -243760.9; %J/mol
-    hf_surr = -1432954.686; %J/kg
+    hf_surr_molar = -248500; %J/mol
+    hf_surr = -1461800; %J/kg
     
     %Heat of vaporization of jet-A
     hv_jetA = 270000; %J/kg
