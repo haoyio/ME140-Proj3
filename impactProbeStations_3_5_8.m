@@ -1,14 +1,17 @@
-function [P, Po, M, V, T, To] = impactProbeStations_3_5_8(m_dot, A, Tm, Po, RF)
-
+function [P, Po, M, V, T, To] = impactProbeStations_3_5_8(m_dot, A, Tm, Po, RF,isVarK)
 % Finds station properties for all given spool speeds.
+
+numDataPoints = 8;
 
 P = zeros(length(Po), 1);
 T = zeros(length(Po), 1);
 M = zeros(length(Po), 1);
 V = zeros(length(Po), 1);
 
+To = zeros(1,numDataPoints);
+
 for i = 1:length(Po)
-    res = impactProbeData(m_dot(i), A, Tm(i), Po(i), RF); % Obtain the values for one spool speed
+    res = impactProbeData(m_dot(i), A, Tm(i), Po(i), RF,isVarK); % Obtain the values for one spool speed
     
     P(i) = res.P;
     T(i) = res.T;
@@ -21,7 +24,7 @@ end
 
 end
 
-function [res] = impactProbeData(m_dot, A, Tm, Po, RF)
+function [res] = impactProbeData(m_dot, A, Tm, Po, RF, isVarK)
 % Iterative procedure to determine MFP, To, M, and T
 % Notes: Will not work if flow is supersonic
 
@@ -36,13 +39,19 @@ T_inc = 0.1;
 To_inc = 0.1;
 T_steps = 10000;
 
-a = 2.927;
-b = 1.488e-3;
-c = -5.685e-7;
-d = 1.01e-10;
-e = -6.753e-15;
-
-R = 287.058; % J/(kg*K)
+if isVarK == true
+    a = 2.927;
+    b = 1.488e-3;
+    c = -5.685e-7;
+    d = 1.01e-10;
+    e = -6.753e-15;
+else
+    a = 1003.8/28.9700;
+    b = 0;
+    c = 0;
+    d = 0;
+    e = 0;
+end
 
 % (a) Assume To = Tm
 To = Tm;
@@ -59,7 +68,8 @@ while (true) % Loop to find correct To
     % (c1) Assume T
     T = 300; % Initial guess for T
     while (true)
-        [~, ~, k] = specHeat(T); % Calculate k based on temp
+        [~, ~, k] = specHeat(T); 
+        % Calculate k based on temp
         
         % (c2) Evaluate the integrals, I1 and I2, and Cp,ave
         % Calculate first integration
