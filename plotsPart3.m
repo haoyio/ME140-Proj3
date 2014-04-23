@@ -35,7 +35,7 @@ print('-depsc','-tiff','-r300','STvsSpeed');
 figure(3)
 h3 = plot(w,TSFC*kg_To_g,'*-');
 xlabel('Spool Speed [krpm]')
-ylabel('Thrust Specific Fuel Consumption kg_{air}/(Ns)')
+ylabel('Thrust Specific Fuel Consumption kg_{fuel}/(Ns)')
 title('Thrust Specific Fuel Consumption vs Spool Speed')
 plotfixer;
 ylim([0.04,0.14]);

@@ -102,18 +102,8 @@ proj3part2plots
 
 To4s = zeros(1,length(w));
 To5s = zeros(1,length(w));
-work_turbine = zeros(1,length(w));
 
 for i = 1:length(w)
     To4s(i) = adiabaticFlameTemperature(AF(i),To3(i));
-    [To5s(i),work_turbine(i)] = workTurbine(To4s(i), Po5c(i)/Po4c(i),AF(i));
-end
+    To5s(i) = workTurbine(To4s(i), Po5c(i)/Po4c(i),A
 
-figure(1)
-plot(w,To4s,'*-',...
-    w,To5s,'*-');
-plotfixer;
-
-figure(2)
-plot(w,work_turbine,'*-')
-plotfixer;
