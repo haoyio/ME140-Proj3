@@ -3,7 +3,7 @@ function [To5 w_turb] = workTurbine(To4, Po5_Po4, AF)
 
 [cp cv k] = specHeatC123H222(AF, To4);
 R = cp - cv; % J/kg*K
-dT = 0.01; % K
+dT = -0.01; % K
 To5 = To4; % K
 
 RHS = R*log(Po5_Po4);
@@ -22,7 +22,7 @@ while (true)
     LHS = LHS + y_ave*dT; % Add the next part of the integral
     w_turb = w_turb + (cp_1 + cp_2) / 2 * dT; % Calculate specific work based on cp integral
     
-    if (LHS > RHS) % Exceeded what we need -> break
+    if (LHS < RHS) % Exceeded what we need -> break
         break
     end
     
