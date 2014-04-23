@@ -13,8 +13,8 @@ xlabel('Equivalence Ratio')
 ylabel('Adiabatic Flame Temperature [K]')
 title('Adiabatic Flame Temperature vs Equivalence Ratio (Air and Jet A fuel')
 plotfixer;
-ylim([250,950]);
-xlim([45,80]);
+ylim([300,2000]);
+xlim([0,0.7]);
 set(h1,'LineWidth',3);
 % print('-depsc','-tiff','-r300','TovsSpeed');
 
