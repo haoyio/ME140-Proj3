@@ -3,6 +3,7 @@ clear; close all; clc;
 
 loaddata;
 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculations for air with variable specific heats
 [m_air, P2, Po2, M2, V2, T2, To2] = ...
     impactProbeStation_2(DP2, const.Patm, T2m);
@@ -17,6 +18,7 @@ loaddata;
 
 AF = m_air./m_fuel;
 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Calculations for combustion products
 [P4c, Po4c, M4c, V4c, T4c, To4c] = ...
     productsStation_4(m_air + m_fuel, const.A4, T4m, P4, const.RF_cr, AF);
@@ -31,8 +33,8 @@ AF = m_air./m_fuel;
 [P5, Po5, M5, V5, T5, To5] = ...
    impactProbeStations_3_5_8(m_air + m_fuel, const.A5, T5m, Po5, const.RF_ax, 1);
 
-
 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % PART 4 stuff
 % Generate struct for part 4 function
 in4.To2 = To2; in4.Po2 = Po2;
