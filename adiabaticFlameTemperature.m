@@ -4,7 +4,7 @@ function [Tout] = adiabaticFlameTemperature(AF, Tin)
 
 % Calculate equivalence ratio
 AF_stoich = 17.85*(const.M_O2 + ...      % stoichometric air-fuel ratio
-            3.76*const.M_N2)/const.M_C12H26;
+            3.76*const.M_N2)/const.M_C123H222;
 phi = AF_stoich/AF;                     % equivalence ratio
 
 
