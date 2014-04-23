@@ -91,4 +91,4 @@ plotfixer;
 ylim([0,45]);
 xlim([45,80]);
 set(h1,'LineWidth',3);
-print('-depsc','-tiff','-r300','PowervsSpeed');
+print('-depsc','-tiff','-r300','3xTurbineWorkvsSpeed');
