@@ -19,7 +19,7 @@ if isVarK
     Po2s = Po1;
     [~,~,k] = specHeat(T2s);
     M2s = (2/(k-1)*((Po2s/P2)^((k-1)/k) - 1))^0.5;  % isentropic relations
-    T2s
+    
     %{
     % Get M2s
     dT = 1e-2;
